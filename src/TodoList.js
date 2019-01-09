@@ -44,7 +44,7 @@ class TodoList extends Component {
                         <input ref={this.props.newItemRef}
                                 value={this.props.currentItem.text}
                                 onChange={e => this.props.handleItemChange(e)}
-                                type="text" placeholder="Add new item..." required />
+                                type="text" placeholder="Add new item" required />
                         <button type="submit"><i className="fas fa-check"></i></button>
                     </form>
                     {listItems}

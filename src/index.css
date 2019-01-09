@@ -31,7 +31,8 @@ body {
 .main {
     background: #fff;
     margin: 2em auto;
-    width: 500px;
+    min-width: 350px;
+    max-width: 500px;
     box-shadow: 0 0 20px 1px #dcdcdc;
 }
 .itemList {
@@ -85,7 +86,7 @@ body {
 }
 .item span button:hover { background-color: #eee;}
 .item label {
-    width: 80%;
+    width: 78%;
     display: flex;
     align-items: center;
 }
@@ -123,3 +124,8 @@ button {
     transition: all .4s;
 }
 .newItem button:hover { background-color: #ccc;}
+
+/* Media query for mobile version */
+@media only screen and (max-width: 360px) {
+  .main {margin: 0 auto; height: 100vh;}
+}

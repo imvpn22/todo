@@ -9,30 +9,37 @@ class App extends Component {
             currentItem: {text:'', id:'', done:false},
             items: [{
                     id: 1,
-                    text: 'Complete this project',
-                    done: false
-                }, {
-                    id: 2,
-                    text: 'Push on Github',
-                    done: false
-                }, {
-                    id: 3,
                     text: 'Think about idea',
                     done: true
                 }, {
+                    id: 2,
+                    text: 'Publish on Github',
+                    done: true
+                }, {
+                    id: 3,
+                    text: 'Add style',
+                    done: true
+                }, {
                     id: 4,
-                    text: 'Add some more style',
-                    done: false,
-                    editable: false
+                    text: 'What to do',
+                    done: true
                 }, {
                     id: 5,
                     text: 'What to do',
                     done: true
                 }, {
                     id: 6,
-                    text: 'What to do',
-                    done: true
-                }
+                    text: 'Optimize for mobile view',
+                    done: false
+                }, {
+                    id: 7,
+                    text: 'Add PWA features',
+                    done: false
+                }, {
+                    id: 8,
+                    text: 'Complete this project',
+                    done: false
+                },
             ]
         }
     }
