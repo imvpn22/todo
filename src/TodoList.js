@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 class TodoList extends Component {
 
-
     createItem = (item) => {
         if (item.editable) {
             return <div className={"item " + (item.done ? "doneItem" : "activeItem")} key={item.id}>
@@ -38,11 +37,11 @@ class TodoList extends Component {
         return (
             <div className = "main">
                 <div className="header">
-                    ToDo App
+                    ToDo
                 </div>
                 <div className="itemList">
                     <form className="newItem item" onSubmit={e => this.props.addItem(e)}>
-                        <input ref={input => this.newItemRef = input}
+                        <input ref={this.props.newItemRef}
                                 value={this.props.currentItem.text}
                                 onChange={e => this.props.handleItemChange(e)}
                                 type="text" placeholder="Add new item..." required />

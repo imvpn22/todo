@@ -14,6 +14,7 @@ body {
 }
 
 .container {
+    font-family: 'Rubik';
 }
 
 .header {
@@ -21,8 +22,10 @@ body {
     background-color: #a5f1ea;
     padding: .8em 0;
     font-size: 1.7em;
-    font-family: consolas;
+    font-family: 'Source Sans Pro';
     color: #0e6d65;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 .main {
@@ -44,8 +47,6 @@ body {
     width: 100%;
     padding: 10px 20px;
     box-sizing: border-box;
-    font-family: arial;
-    letter-spacing: 1px;
 }
 .newItem {
     width: 92%;
@@ -66,6 +67,7 @@ body {
 }
 .doneItem {
     /* background: #c3ffc3; */
+    font-size: .9em;
     color:  #aaa;
 }
 .doneItem label i {
@@ -76,27 +78,23 @@ body {
 .doneItem span {
     text-decoration: line-through;
 }
-.item > span {
-    /* min-width: 20%; */
-}
+.item > span {}
 .item span button {
     border-radius: 50%;
     background-color: transparent;
 }
-.item span button:hover {
-    background-color: #eee;
-}
+.item span button:hover { background-color: #eee;}
 .item label {
     width: 80%;
     display: flex;
     align-items: center;
 }
-.item label i {
-    margin-right: 1em;
-}
-.fa-trash-alt {
-    color:  red;
-}
+.item label span {}
+.item label i { width: 2em }
+.doneItem label span {}
+.doneItem label i {width: 2.4em}
+
+.fa-trash-alt {color:  red;}
 .item span button {
     background-color: transparent;
     text-decoration: none !important;
@@ -108,7 +106,7 @@ input[type="text"] {
     padding: 7px 15px;
     color: #555;
 }
-form input[type="text"] {
+.newItem input[type="text"] {
     width: 100%;
     padding: 10px 15px;
     color: #444;
@@ -120,15 +118,8 @@ button {
     cursor: pointer;
     color: #666;
 }
-form button {
-    /* width: 20%; */
-    /* background-color: transparent; */
-    color: #333;
-    /* transition: all 1s; */
+.newItem button {
+    background-color: #eee;
+    transition: all .4s;
 }
-form button:hover {
-    /* background-color: green; */
-    /* color: #fff; */
-}
-
-
+.newItem button:hover { background-color: #ccc;}

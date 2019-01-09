@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import TodoList from './TodoList';
 
 class App extends Component {
-
     constructor(props) {
         super(props);
         this.newItemRef = React.createRef();
@@ -38,9 +37,9 @@ class App extends Component {
         }
     }
 
-    // componentDidMount() {
-    //     this.newItemRef.focus()
-    // }
+    componentDidMount() {
+        this.newItemRef.current.focus()
+    }
 
     addItem = (e) => {
         e.preventDefault();
@@ -52,7 +51,6 @@ class App extends Component {
                 currentItem: { text: '', key: '', done:false }
             });
         }
-
     };
 
     handleItemChange = e => {
@@ -106,6 +104,7 @@ class App extends Component {
         <div className="container">
             <TodoList
                 items={this.state.items}
+                newItemRef={this.newItemRef}
                 currentItem={this.state.currentItem}
                 handleItemChange={this.handleItemChange}
                 addItem={this.addItem}
