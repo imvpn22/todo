@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react';
-import TodoList from './TodoList';
+import TodoList from './Components/TodoList';
 
 // const API_BASE_URL = 'http://localhost:8000/api';
 const API_BASE_URL = 'https://imvpn22-todo.herokuapp.com/api';
@@ -92,6 +92,8 @@ class App extends Component {
   };
 
   activeEdit = (itemId, e) => {
+    e.preventDefault();
+    e.stopPropagation();
     let text = e.target.value;
     let items = this.state.items;
     items = items.map(item => {
