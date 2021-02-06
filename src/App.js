@@ -74,7 +74,8 @@ class App extends Component {
 
   deleteItem = item => {
     item.isDeleted = true;
-    this.updateTodo(item);
+    // this.updateTodo(item);
+    this.deleteTodo(item);
   };
 
   editItem = itemId => {

@@ -49,9 +49,7 @@ class TodoList extends Component {
         <div className="itemList">
           {listItems}
           {doneItems}
-
-          <div class="divider" />
-
+          {/* <div class="divider" /> */}
           {deleteItems}
         </div>
         <div className="new-item item">
