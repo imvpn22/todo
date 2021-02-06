@@ -39,10 +39,10 @@ class TodoList extends Component {
             />
           </label>
           <span>
-            <button onClick={() => this.props.editItem(item._id)}>
+            <button onClick={() => this.props.saveItem(item)}>
               <i className="far fa-save" />
             </button>
-            <button onClick={() => this.props.deleteItem(item._id)}>
+            <button onClick={() => this.props.deleteItem(item)}>
               <i className="far fa-trash-alt" />
             </button>
           </span>
@@ -54,7 +54,7 @@ class TodoList extends Component {
           className={'item ' + (item.isDone ? 'doneItem' : 'activeItem')}
           key={item._id}
         >
-          <label onClick={() => this.props.doneItem(item._id)}>
+          <label onClick={() => this.props.doneItem(item)}>
             <i
               className={
                 'far ' + (item.isDone ? 'fa-check-circle' : 'fa-circle')
@@ -66,7 +66,7 @@ class TodoList extends Component {
             <button onClick={() => this.props.editItem(item._id)}>
               <i className="fas fa-pencil-alt" />
             </button>
-            <button onClick={() => this.props.deleteItem(item._id)}>
+            <button onClick={() => this.props.deleteItem(item)}>
               <i className="far fa-trash-alt" />
             </button>
           </span>

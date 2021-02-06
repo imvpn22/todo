@@ -34,13 +34,29 @@ class App extends Component {
     this.getTodosFromBackend();
   }
 
-  addItem = text => {
+  addTodo = text => {
     const newItem = { text };
     this.addTodoInBackend(newItem);
-
     const { items } = this.state;
     newItem._id = Date.now();
     items.push(newItem);
+    this.setState({ items });
+  };
+
+  updateTodo = todo => {
+    this.updateTodoInBackend(todo);
+    const items = this.state.items.map(item => {
+      if (item._id === todo._id) {
+        return todo;
+      }
+      return item;
+    });
+    this.setState({ items });
+  };
+
+  deleteTodo = todo => {
+    this.deleteTodoFromBackend(todo._id);
+    const items = this.state.items.filter(item => item._id !== todo._id);
     this.setState({ items });
   };
 
@@ -51,23 +67,14 @@ class App extends Component {
     this.setState({ currentItem });
   };
 
-  doneItem = itemId => {
-    let items = this.state.items;
-    items = items.map(item => {
-      if (itemId === item._id) {
-        item.isDone = !item.isDone;
-        this.updateTodoInBackend(item);
-      }
-      return item;
-    });
-    this.setState({ items });
-    // this.updateLocalStorage(items);
+  doneItem = item => {
+    item.isDone = !item.isDone;
+    this.updateTodo(item);
   };
 
-  deleteItem = itemId => {
-    this.deleteTodoFromBackend(itemId);
-    const items = this.state.items.filter(item => itemId !== item._id);
-    this.setState({ items });
+  deleteItem = item => {
+    item.isDeleted = true;
+    this.updateTodo(item);
   };
 
   editItem = itemId => {
@@ -77,7 +84,11 @@ class App extends Component {
       return item;
     });
     this.setState({ items });
-    this.updateLocalStorage(items);
+  };
+
+  saveItem = item => {
+    item.editable = false;
+    this.updateTodo(item);
   };
 
   activeEdit = (itemId, e) => {
@@ -101,6 +112,7 @@ class App extends Component {
       .then(res => {
         const { todos } = res.data;
         this.setState({ items: todos });
+        this.updateLocalStorage(todos);
       })
       .catch(err => {
         console.log(err);
@@ -111,9 +123,10 @@ class App extends Component {
     axios
       .put(API_BASE_URL + '/todos', todo)
       .then(res => {
-        console.log(res);
+        // console.log(res);
         // const { todos } = res.data;
         // this.setState({ items: todos });
+        this.getTodosFromBackend();
       })
       .catch(err => {
         console.log(err);
@@ -151,11 +164,12 @@ class App extends Component {
           newItemRef={this.newItemRef}
           currentItem={this.state.currentItem}
           handleItemChange={this.handleItemChange}
-          addItem={this.addItem}
+          addItem={this.addTodo}
           doneItem={this.doneItem}
           deleteItem={this.deleteItem}
           editItem={this.editItem}
           activeEdit={this.activeEdit}
+          saveItem={this.saveItem}
         />
       </div>
     );
