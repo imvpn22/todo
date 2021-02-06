@@ -84,6 +84,10 @@ body {
 .item span button {
   border-radius: 50%;
   background-color: transparent;
+  height: 2rem;
+  width: 2rem;
+  padding: 0;
+  transition: all ease 0.2s;
 }
 .item span button:hover {
   background-color: #eee;
