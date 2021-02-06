@@ -17,6 +17,7 @@ class TodoList extends Component {
   createTodoItem = e => {
     e.preventDefault();
     this.props.addItem(this.state.inputText);
+    this.setState({ inputText: '' });
   };
 
   createItemHtml = item => (
@@ -56,7 +57,7 @@ class TodoList extends Component {
           <form onSubmit={this.createTodoItem}>
             <input
               ref={this.props.newItemRef}
-              value={this.props.currentItem.text}
+              value={this.state.inputText}
               onChange={e => this.updateCurrentText(e)}
               type="text"
               placeholder="Add new item"
