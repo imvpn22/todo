@@ -13,7 +13,7 @@
   },
   "homepage": "https://imvpn22.github.io/todo",
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "gh-pages": "^2.0.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
